@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniEvent Hub — University Event Management</title>
+<meta name="description" content="A centralized platform for university events, registration, digital tickets and attendance tracking.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-uni fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold" href="index.html">
+      <span class="navbar-brand-mark">UH</span> UniEvent Hub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link active" data-page="index.html" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="events.html" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="contact.html" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="dashboard.html" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm" href="dashboard.html">Login / Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" style="margin-top:76px;">
+  <div class="container position-relative">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-6">
+        <span class="eyebrow">Rajarata University of Sri Lanka</span>
+        <h1 class="mt-3 mb-3">Every campus event, one ticket book.</h1>
+        <p class="lead">Discover workshops, matches and cultural nights, register in a tap, and walk in with a QR ticket — no more missed announcements scattered across group chats.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="events.html" class="btn btn-gold">Explore Events</a>
+          <a href="dashboard.html" class="btn btn-outline-brand" style="border-color:rgba(255,255,255,0.4); color:#fff;">Register Now</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num">120+</div><div class="stat-label">Events / Year</div></div>
+          <div><div class="stat-num">18</div><div class="stat-label">Student Clubs</div></div>
+          <div><div class="stat-num">6.4k</div><div class="stat-label">Tickets Issued</div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-md-block">
+        <div class="ticket-stack">
+          <div class="ticket-float">
+            <div class="ticket-icon banner-workshop"><i class="bi bi-code-slash"></i></div>
+            <div>
+              <div class="fw-semibold">Web Development Workshop</div>
+              <div class="mono text-muted-custom small">15 Jul · Main Hall</div>
+            </div>
+          </div>
+          <div class="ticket-float">
+            <div class="ticket-icon banner-sports"><i class="bi bi-trophy"></i></div>
+            <div>
+              <div class="fw-semibold">Inter University Sports Meet</div>
+              <div class="mono text-muted-custom small">20 Jul · Sports Complex</div>
+            </div>
+          </div>
+          <div class="ticket-float">
+            <div class="ticket-icon banner-cultural"><i class="bi bi-stars"></i></div>
+            <div>
+              <div class="fw-semibold">Cultural Night 2026</div>
+              <div class="mono text-muted-custom small">25 Jul · Auditorium</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= UPCOMING EVENTS (ticket cards) ================= -->
+<section class="section-pad" id="upcoming">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 section-head mb-0">
+      <div>
+        <div class="divider-dash"></div>
+        <span class="eyebrow">What's on</span>
+        <h2 class="mt-2 mb-0">Upcoming events</h2>
+      </div>
+      <a href="events.html" class="btn btn-outline-brand btn-sm">View all events <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="row g-4 mt-2" id="homeEventsGrid">
+      <!-- filled by JS from data.js so home & listing stay in sync -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPOTLIGHT SLIDER (Interactive JS slider) ================= -->
+<section class="section-pad pt-0">
+  <div class="container">
+    <div class="section-head mb-4">
+      <div class="divider-dash"></div>
+      <span class="eyebrow">Spotlight</span>
+      <h2 class="mt-2 mb-0">This week on campus</h2>
+    </div>
+    <div class="spotlight-slider" data-spotlight>
+      <div class="spotlight-track">
+        <div class="spotlight-slide">
+          <span class="eyebrow slide-tag">Registrations open</span>
+          <h3 class="text-white mt-2">Web Development Workshop</h3>
+          <p class="mb-0" style="max-width:520px; color:rgba(255,255,255,0.78);">Build a full project across HTML, CSS, JS, PHP and MySQL in one intensive session — 65 seats left.</p>
+        </div>
+        <div class="spotlight-slide">
+          <span class="eyebrow slide-tag">Team sign-ups closing soon</span>
+          <h3 class="text-white mt-2">Inter University Sports Meet</h3>
+          <p class="mb-0" style="max-width:520px; color:rgba(255,255,255,0.78);">Faculty teams compete for the annual trophy — free entry for all students with a valid ID.</p>
+        </div>
+        <div class="spotlight-slide">
+          <span class="eyebrow slide-tag">Most-rated event · 4.8★</span>
+          <h3 class="text-white mt-2">Cultural Night 2026</h3>
+          <p class="mb-0" style="max-width:520px; color:rgba(255,255,255,0.78);">Twelve societies, one stage — an evening of dance, drama and music in the main auditorium.</p>
+        </div>
+      </div>
+      <button class="spotlight-nav prev" aria-label="Previous slide"><i class="bi bi-chevron-left"></i></button>
+      <button class="spotlight-nav next" aria-label="Next slide"><i class="bi bi-chevron-right"></i></button>
+      <div class="spotlight-progress"></div>
+    </div>
+    <div class="spotlight-dots"></div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section-pad bg-white" id="about">
+  <div class="container">
+    <div class="section-head mx-auto text-center">
+      <div class="divider-dash mx-auto"></div>
+      <span class="eyebrow">Why UniEvent Hub</span>
+      <h2 class="mt-2">Built for how campus events actually run</h2>
+      <p class="text-muted-custom">Everything organizers and students need, in one shared system — replacing scattered posters, forms and spreadsheets.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="feature-tile">
+          <div class="icon-wrap"><i class="bi bi-pencil-square"></i></div>
+          <h6 class="fw-bold">Easy Registration</h6>
+          <p class="text-muted-custom small mb-0">Sign up for any event in under a minute, no paper forms.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="feature-tile">
+          <div class="icon-wrap"><i class="bi bi-qr-code"></i></div>
+          <h6 class="fw-bold">QR Code Attendance</h6>
+          <p class="text-muted-custom small mb-0">Walk-in check-in with a scan — no queues, no sign-in sheets.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="feature-tile">
+          <div class="icon-wrap"><i class="bi bi-bell"></i></div>
+          <h6 class="fw-bold">Event Notifications</h6>
+          <p class="text-muted-custom small mb-0">Reminders before doors open, so nothing gets missed.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="feature-tile">
+          <div class="icon-wrap"><i class="bi bi-award"></i></div>
+          <h6 class="fw-bold">Certificates</h6>
+          <p class="text-muted-custom small mb-0">Auto-generated participation certificates after each event.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOR ORGANIZERS CTA ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row align-items-center bg-brand rounded-4 p-4 p-lg-5 reveal" style="background: var(--ink); border-radius: var(--radius); color:#fff;">
+      <div class="col-lg-8">
+        <span class="eyebrow">For clubs &amp; organizers</span>
+        <h3 class="text-white mt-2">Run your society's event without spreadsheets.</h3>
+        <p class="mb-0" style="color:rgba(255,255,255,0.75);">Track registrations, scan attendance and generate feedback reports from one dashboard.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+        <a href="dashboard.html" class="btn btn-gold">Open Organizer Tools</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-uni">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold text-white" href="index.html">
+          <span class="navbar-brand-mark">UH</span> UniEvent Hub
+        </a>
+        <p class="mt-3 small">Rajarata University of Sri Lanka's centralized event, registration and ticketing platform.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="events.html">Events</a></li>
+          <li class="mb-2"><a href="index.html#about">About Us</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Support</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#">FAQ</a></li>
+          <li class="mb-2"><a href="#">Help Center</a></li>
+          <li class="mb-2"><a href="#">Privacy Policy</a></li>
+          <li class="mb-2"><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6>Visit</h6>
+        <p class="small mb-1"><i class="bi bi-geo-alt me-2"></i>Mihintale, Anuradhapura, Sri Lanka</p>
+        <p class="small mb-1"><i class="bi bi-telephone me-2"></i>+94 25 223 4567</p>
+        <p class="small mb-0"><i class="bi bi-envelope me-2"></i>info@unieventhub.lk</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      &copy; <span class="current-year">2026</span> UniEvent Hub. All rights reserved. · ICT1209 Web Technologies Mini Project
+    </div>
+  </div>
+</footer>
+
+<!-- ================= REGISTER MODAL (shared) ================= -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:16px; border:none;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title display-font">Confirm registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted-custom">You're about to register for:</p>
+        <h5 id="registerModalTitle" class="mb-3">—</h5>
+        <p class="small text-muted-custom mb-0">A digital ticket with a QR code will be added to your dashboard instantly.</p>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-outline-brand btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-gold btn-sm" id="confirmRegisterBtn">Confirm &amp; Get Ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+<script>
+  // Render first 3 upcoming events on the home page from the shared dataset
+  document.addEventListener("DOMContentLoaded", () => {
+    const wrap = document.getElementById("homeEventsGrid");
+    if (wrap && typeof EVENTS !== "undefined") {
+      wrap.innerHTML = EVENTS.slice(0, 3).map(eventCardMarkup).join("");
+      initScrollReveal();
+      initRegisterButtons();
+    }
+  });
+</script>
+</body>
+</html>

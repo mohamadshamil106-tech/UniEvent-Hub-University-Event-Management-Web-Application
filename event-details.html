@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Details — UniEvent Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<style>
+  .ev-banner-lg { border-radius: var(--radius); min-height: 260px; display:flex; align-items:center; justify-content:center; font-size:3rem; color:rgba(255,255,255,0.9); }
+  .side-panel { background:#fff; border:1px solid var(--line); border-radius: var(--radius); padding:1.4rem; }
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-uni fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold" href="index.html">
+      <span class="navbar-brand-mark">UH</span> UniEvent Hub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" data-page="events.html" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="contact.html" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="dashboard.html" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm" href="dashboard.html">Login / Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="eventDetailsRoot">
+<!-- ================= PAGE HEADER / BREADCRUMB ================= -->
+<header class="page-header" style="margin-top:76px;">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-uni mb-2">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="events.html">Events</a></li>
+        <li class="breadcrumb-item active" id="evBreadcrumbTitle">Event Details</li>
+      </ol>
+    </nav>
+    <span class="eyebrow" id="evCategory">Workshop</span>
+    <h1 class="text-white mt-2 mb-0" id="evTitle" style="font-size:2.1rem;">—</h1>
+  </div>
+</header>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="ev-banner-lg" id="evBanner"><i class="bi" id="evBannerIcon"></i></div>
+
+        <div class="d-flex flex-wrap gap-4 mt-4 mono small text-muted-custom">
+          <div data-hint="Event date"><i class="bi bi-calendar3 me-1"></i><span id="evDate">—</span></div>
+          <div data-hint="Start – end time"><i class="bi bi-clock me-1"></i><span id="evTime">—</span></div>
+          <div data-hint="Where it's held"><i class="bi bi-geo-alt me-1"></i><span id="evVenue">—</span></div>
+          <div data-hint="Hosting society"><i class="bi bi-person-badge me-1"></i>Organized by <span id="evOrganizer">—</span></div>
+        </div>
+
+        <h5 class="mt-4">About this event</h5>
+        <p class="text-muted-custom" id="evDescription">—</p>
+
+        <h5 class="mt-4">Event highlights</h5>
+        <ul class="list-unstyled" id="evHighlights"></ul>
+
+        <h5 class="mt-4">Feedback &amp; ratings</h5>
+        <div class="d-flex align-items-center gap-2">
+          <span class="text-warning" style="letter-spacing:2px;">★★★★★</span>
+          <strong id="evRating">4.2</strong>
+          <span class="text-muted-custom small" id="evRatingCount">(32 ratings)</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="side-panel reveal">
+          <div class="d-flex justify-content-between mono small text-muted-custom mb-3">
+            <span>Ticket</span><span id="evTicketNo">NO. 0000</span>
+          </div>
+          <p class="small text-muted-custom mb-1">Participants remaining</p>
+          <p class="fw-bold mb-2" id="evRemainingText">— / —</p>
+          <div class="progress mb-4" style="height:8px; border-radius:6px;">
+            <div class="progress-bar" id="evProgressBar" style="width:0%; background:var(--gold);"></div>
+          </div>
+          <button class="btn btn-gold w-100 mb-2 register-btn-lg" data-hint="Get an instant QR ticket">Register Now</button>
+          <button class="btn btn-outline-brand w-100"><i class="bi bi-calendar-plus me-1"></i> Add to Calendar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <div class="section-head mb-4">
+        <div class="divider-dash"></div>
+        <span class="eyebrow">You might also like</span>
+        <h4 class="mt-2 mb-0">More events on campus</h4>
+      </div>
+      <div class="row g-4" id="moreEvents"></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-uni">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold text-white" href="index.html">
+          <span class="navbar-brand-mark">UH</span> UniEvent Hub
+        </a>
+        <p class="mt-3 small">Rajarata University of Sri Lanka's centralized event, registration and ticketing platform.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="events.html">Events</a></li>
+          <li class="mb-2"><a href="index.html#about">About Us</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Support</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#">FAQ</a></li>
+          <li class="mb-2"><a href="#">Help Center</a></li>
+          <li class="mb-2"><a href="#">Privacy Policy</a></li>
+          <li class="mb-2"><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6>Visit</h6>
+        <p class="small mb-1"><i class="bi bi-geo-alt me-2"></i>Mihintale, Anuradhapura, Sri Lanka</p>
+        <p class="small mb-1"><i class="bi bi-telephone me-2"></i>+94 25 223 4567</p>
+        <p class="small mb-0"><i class="bi bi-envelope me-2"></i>info@unieventhub.lk</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      &copy; <span class="current-year">2026</span> UniEvent Hub. All rights reserved. · ICT1209 Web Technologies Mini Project
+    </div>
+  </div>
+</footer>
+
+<!-- ================= REGISTER MODAL ================= -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:16px; border:none;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title display-font">Confirm registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted-custom">You're about to register for:</p>
+        <h5 id="registerModalTitle" class="mb-3">—</h5>
+        <p class="small text-muted-custom mb-0">A digital ticket with a QR code will be added to your dashboard instantly.</p>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-outline-brand btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-gold btn-sm" id="confirmRegisterBtn">Confirm &amp; Get Ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

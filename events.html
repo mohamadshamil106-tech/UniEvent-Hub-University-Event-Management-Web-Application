@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events — UniEvent Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-uni fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold" href="index.html">
+      <span class="navbar-brand-mark">UH</span> UniEvent Hub
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" data-page="index.html" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" data-page="events.html" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="contact.html" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" data-page="dashboard.html" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-brand btn-sm" href="dashboard.html">Login / Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= PAGE HEADER ================= -->
+<header class="page-header" style="margin-top:76px;">
+  <div class="container">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb breadcrumb-uni mb-2"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Events</li></ol></nav>
+    <span class="eyebrow">Full listing</span>
+    <h1 class="text-white mt-2 mb-0" style="font-size:2.2rem;">Browse all events</h1>
+  </div>
+</header>
+
+<!-- ================= SEARCH & FILTER ================= -->
+<section class="py-4 bg-white border-bottom">
+  <div class="container">
+    <div class="row g-3 align-items-center">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0" style="border-radius:10px 0 0 10px; border-color:var(--line);"><i class="bi bi-search"></i></span>
+          <input type="text" id="eventSearch" class="form-control form-control-uni border-start-0" style="border-radius:0 10px 10px 0;" placeholder="Search events, venues or organizers…">
+        </div>
+      </div>
+      <div class="col-lg-6 text-lg-end">
+        <span class="text-muted-custom small mono" id="resultsCount">6 events found</span>
+      </div>
+    </div>
+    <div class="d-flex flex-wrap gap-2 mt-3" id="categoryChips">
+      <button class="chip active" data-category="All">All</button>
+      <button class="chip" data-category="Workshop">Workshop</button>
+      <button class="chip" data-category="Seminar">Seminar</button>
+      <button class="chip" data-category="Sports">Sports</button>
+      <button class="chip" data-category="Cultural">Cultural</button>
+      <button class="chip" data-category="Club Activities">Club Activities</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTS GRID ================= -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-4" id="eventsGrid"><!-- rendered by script.js from data.js --></div>
+    <div class="text-center py-5 d-none" id="eventsEmpty">
+      <i class="bi bi-emoji-frown" style="font-size:2.2rem; color:var(--text-muted);"></i>
+      <p class="text-muted-custom mt-3 mb-0">No events match your search. Try a different keyword or category.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer-uni">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold text-white" href="index.html">
+          <span class="navbar-brand-mark">UH</span> UniEvent Hub
+        </a>
+        <p class="mt-3 small">Rajarata University of Sri Lanka's centralized event, registration and ticketing platform.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="footer-social"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="footer-social"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="index.html">Home</a></li>
+          <li class="mb-2"><a href="events.html">Events</a></li>
+          <li class="mb-2"><a href="index.html#about">About Us</a></li>
+          <li class="mb-2"><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Support</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#">FAQ</a></li>
+          <li class="mb-2"><a href="#">Help Center</a></li>
+          <li class="mb-2"><a href="#">Privacy Policy</a></li>
+          <li class="mb-2"><a href="#">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6>Visit</h6>
+        <p class="small mb-1"><i class="bi bi-geo-alt me-2"></i>Mihintale, Anuradhapura, Sri Lanka</p>
+        <p class="small mb-1"><i class="bi bi-telephone me-2"></i>+94 25 223 4567</p>
+        <p class="small mb-0"><i class="bi bi-envelope me-2"></i>info@unieventhub.lk</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      &copy; <span class="current-year">2026</span> UniEvent Hub. All rights reserved. · ICT1209 Web Technologies Mini Project
+    </div>
+  </div>
+</footer>
+
+<!-- ================= REGISTER MODAL ================= -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:16px; border:none;">
+      <div class="modal-header border-0">
+        <h5 class="modal-title display-font">Confirm registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-muted-custom">You're about to register for:</p>
+        <h5 id="registerModalTitle" class="mb-3">—</h5>
+        <p class="small text-muted-custom mb-0">A digital ticket with a QR code will be added to your dashboard instantly.</p>
+      </div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-outline-brand btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-gold btn-sm" id="confirmRegisterBtn">Confirm &amp; Get Ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
