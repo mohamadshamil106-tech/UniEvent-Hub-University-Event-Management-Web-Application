@@ -1,6 +1,4 @@
-/* Shared event dataset for UniEvent Hub
-   Used by events.html for dynamic search/filter and by event-details.html
-   to hydrate the detail view based on a ?id= query param. */
+
 
 const EVENTS = [
   {

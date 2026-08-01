@@ -1,13 +1,4 @@
-/* =========================================================
-   UniEvent Hub — script.js
-   Implements the required JS features:
-   1. Dynamic Content Updates  -> renderEvents() + filter/search on events.html
-   2. Interactive Image Slider -> Spotlight slider (home page)
-   3. Form Validation          -> Contact form real-time validation
-   4. Smooth Scrolling         -> in-page nav links (CSS + offset fix below)
-   5. Event Handling           -> hover hints, click-to-register toast, modal
-   6. Custom Animations        -> IntersectionObserver reveal-on-scroll
-   ========================================================= */
+
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavbarActiveLink();
@@ -21,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initYear();
 });
 
-/* ---------------- Utility: toast ---------------- */
+
 function showToast(message, icon = "bi-check-circle") {
   let toast = document.querySelector(".uni-toast");
   if (!toast) {
@@ -35,7 +26,7 @@ function showToast(message, icon = "bi-check-circle") {
   toast._timer = setTimeout(() => toast.classList.remove("show"), 3200);
 }
 
-/* ---------------- Active nav link ---------------- */
+
 function initNavbarActiveLink() {
   const path = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".navbar-uni .nav-link[data-page]").forEach((link) => {
@@ -43,7 +34,7 @@ function initNavbarActiveLink() {
   });
 }
 
-/* ---------------- 6. Reveal-on-scroll animation ---------------- */
+
 function initScrollReveal() {
   const targets = document.querySelectorAll(".reveal, .ticket-card");
   if (!("IntersectionObserver" in window) || !targets.length) {
@@ -64,7 +55,7 @@ function initScrollReveal() {
   targets.forEach((t) => io.observe(t));
 }
 
-/* ---------------- 2. Custom spotlight slider (home page) ---------------- */
+
 function initSpotlightSlider() {
   const root = document.querySelector("[data-spotlight]");
   if (!root) return;
@@ -123,7 +114,7 @@ function initSpotlightSlider() {
   startAutoplay();
 }
 
-/* ---------------- 1. Dynamic filtering / search — events.html ---------------- */
+
 function eventCardMarkup(ev) {
   return `
     <div class="col-md-6 col-lg-4">
@@ -196,7 +187,7 @@ function initEventListingPage() {
   render();
 }
 
-/* ---------------- Event details hydration ---------------- */
+
 function initEventDetailsPage() {
   const container = document.getElementById("eventDetailsRoot");
   if (!container || typeof EVENTS === "undefined") return;
@@ -231,7 +222,6 @@ function initEventDetailsPage() {
 
   document.querySelectorAll(".register-btn-lg").forEach((btn) => (btn.dataset.title = ev.title));
 
-  // populate "more events" strip, excluding current
   const moreWrap = document.getElementById("moreEvents");
   if (moreWrap) {
     const others = EVENTS.filter((e) => e.id !== ev.id).slice(0, 3);
@@ -241,7 +231,7 @@ function initEventDetailsPage() {
   }
 }
 
-/* ---------------- 5. Event handling: register buttons + modal ---------------- */
+
 function initRegisterButtons() {
   document.querySelectorAll(".register-btn, .register-btn-lg").forEach((btn) => {
     if (btn.dataset.bound) return;
@@ -270,7 +260,7 @@ function initRegisterButtons() {
   });
 }
 
-/* ---------------- 3. Contact form validation (real-time) ---------------- */
+
 function initContactFormValidation() {
   const form = document.getElementById("contactForm");
   if (!form) return;
@@ -320,7 +310,6 @@ function initContactFormValidation() {
   });
 }
 
-/* ---------------- 4. Smooth scroll offset (fixed navbar compensation) ---------------- */
 function initSmoothScrollOffset() {
   const navHeight = document.querySelector(".navbar-uni")?.offsetHeight || 0;
   document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach((link) => {

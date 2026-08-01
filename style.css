@@ -1,14 +1,4 @@
-/* =========================================================
-   UniEvent Hub — Design tokens
-   Palette:  ink #0E1930 (navy-deep) / navy #16233F / paper #F3F4F8
-             gold #E3A73E (achievement) / green #3B7A57 (go/register)
-             coral #E2574C (urgent/live)
-   Type:     Display  — 'Space Grotesk'   (headings, ticket numbers)
-             Body     — 'Inter'           (paragraphs, UI text)
-             Mono     — 'JetBrains Mono'  (dates, codes, labels)
-   Signature: Ticket-stub cards — perforated tear line + corner QR mark,
-              a literal nod to the app's digital-ticketing core.
-   ========================================================= */
+
 
 :root {
   --ink: #0e1930;
@@ -66,7 +56,7 @@ a { text-decoration: none; }
 
 .text-muted-custom { color: var(--text-muted); }
 
-/* ---------- Buttons ---------- */
+
 .btn-brand {
   background: var(--ink);
   color: #fff;
@@ -114,7 +104,7 @@ a { text-decoration: none; }
   box-shadow: 0 12px 24px -12px rgba(227, 167, 62, 0.55);
 }
 
-/* ---------- Navbar ---------- */
+
 .navbar-brand-mark {
   width: 40px;
   height: 40px;
@@ -155,7 +145,7 @@ a { text-decoration: none; }
 .navbar-uni .nav-link:hover::after,
 .navbar-uni .nav-link.active::after { transform: scaleX(1); }
 
-/* ---------- Hero ---------- */
+
 .hero {
   background: var(--ink);
   color: #fff;
@@ -195,7 +185,7 @@ a { text-decoration: none; }
   letter-spacing: 0.08em;
 }
 
-/* Stacked ticket illustration in hero */
+
 .ticket-stack { position: relative; height: 360px; }
 .ticket-float {
   position: absolute;
@@ -218,7 +208,6 @@ a { text-decoration: none; }
 .ticket-float:nth-child(2) { top: 130px; left: 12%; transform: rotate(3deg); z-index: 2; }
 .ticket-float:nth-child(3) { top: 258px; left: 3%; transform: rotate(-2deg); z-index: 1; }
 
-/* ---------- Ticket-stub cards (signature element) ---------- */
 .ticket-card {
   background: var(--paper-raised);
   border-radius: var(--radius);
@@ -304,7 +293,7 @@ a { text-decoration: none; }
 .banner-cultural { background: linear-gradient(135deg,#e2574c,#8f2c25); }
 .banner-club { background: linear-gradient(135deg,#16233f,#0e1930); }
 
-/* ---------- Section framing ---------- */
+
 .section-pad { padding: 5rem 0; }
 .section-head { max-width: 640px; margin-bottom: 2.75rem; }
 .divider-dash {
@@ -312,7 +301,7 @@ a { text-decoration: none; }
   border-radius: 3px; margin-bottom: 1rem;
 }
 
-/* ---------- Feature tiles ---------- */
+
 .feature-tile {
   background: #fff;
   border: 1px solid var(--line);
@@ -329,7 +318,7 @@ a { text-decoration: none; }
   font-size: 1.25rem; margin-bottom: 1rem;
 }
 
-/* ---------- Category chips (filter) ---------- */
+
 .chip {
   border: 1.5px solid var(--line);
   background: #fff;
@@ -343,7 +332,7 @@ a { text-decoration: none; }
 .chip:hover { border-color: var(--gold); }
 .chip.active { background: var(--ink); color: #fff; border-color: var(--ink); }
 
-/* ---------- Custom slider (Interactive JS feature) ---------- */
+
 .spotlight-slider { position: relative; overflow: hidden; border-radius: var(--radius); }
 .spotlight-track { display: flex; transition: transform 0.5s cubic-bezier(.65,0,.35,1); }
 .spotlight-slide {
@@ -380,7 +369,7 @@ a { text-decoration: none; }
   width: 0%;
 }
 
-/* ---------- Footer ---------- */
+
 .footer-uni { background: var(--ink); color: rgba(255,255,255,0.72); padding: 3.5rem 0 1.5rem; }
 .footer-uni h6 { color: #fff; font-family: var(--font-display); letter-spacing: 0.03em; }
 .footer-uni a { color: rgba(255,255,255,0.68); }
@@ -394,11 +383,11 @@ a { text-decoration: none; }
 .footer-social:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.14); margin-top: 2.5rem; padding-top: 1.4rem; font-size: 0.82rem; }
 
-/* ---------- Reveal-on-scroll animation ---------- */
+
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.revealed { opacity: 1; transform: translateY(0); }
 
-/* ---------- Page header (inner pages) ---------- */
+
 .page-header {
   background: var(--ink);
   color: #fff;
@@ -408,7 +397,7 @@ a { text-decoration: none; }
 .breadcrumb-uni a { color: rgba(255,255,255,0.65); }
 .breadcrumb-uni .active { color: #fff; }
 
-/* ---------- Forms ---------- */
+
 .form-control-uni {
   border-radius: 10px;
   border: 1.5px solid var(--line);
@@ -428,7 +417,7 @@ a { text-decoration: none; }
 .form-control-uni.is-invalid ~ .invalid-feedback-uni { display: block; }
 .form-control-uni.is-valid { border-color: var(--green); }
 
-/* ---------- Dashboard ---------- */
+
 .summary-card {
   background: #fff; border-radius: var(--radius); border: 1px solid var(--line);
   padding: 1.3rem; display: flex; align-items: center; gap: 1rem;
@@ -442,7 +431,7 @@ a { text-decoration: none; }
 .table-uni thead { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); }
 .badge-qr { background: var(--green-soft); color: var(--green); font-weight: 600; font-family: var(--font-mono); font-size: 0.72rem; padding: 0.35rem 0.6rem; border-radius: 8px; }
 
-/* Tooltip-y hover hint used on dashboard/event cards */
+
 [data-hint] { position: relative; }
 [data-hint]::after {
   content: attr(data-hint);
@@ -454,7 +443,7 @@ a { text-decoration: none; }
 }
 [data-hint]:hover::after { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* ---------- Toast (custom, JS-driven) ---------- */
+
 .uni-toast {
   position: fixed; bottom: 24px; right: 24px; z-index: 1080;
   background: var(--ink); color: #fff; padding: 0.9rem 1.2rem; border-radius: 12px;

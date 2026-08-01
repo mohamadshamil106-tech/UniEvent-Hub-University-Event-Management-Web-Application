@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+
 <nav class="navbar navbar-expand-lg navbar-uni fixed-top py-3">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2 display-font fw-bold" href="index.html">
@@ -36,7 +36,7 @@
   </div>
 </nav>
 
-<!-- ================= HERO ================= -->
+
 <header class="hero" style="margin-top:76px;">
   <div class="container position-relative">
     <div class="row align-items-center gy-5">
@@ -83,7 +83,6 @@
   </div>
 </header>
 
-<!-- ================= UPCOMING EVENTS (ticket cards) ================= -->
 <section class="section-pad" id="upcoming">
   <div class="container">
     <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 section-head mb-0">
@@ -95,12 +94,12 @@
       <a href="events.html" class="btn btn-outline-brand btn-sm">View all events <i class="bi bi-arrow-right"></i></a>
     </div>
     <div class="row g-4 mt-2" id="homeEventsGrid">
-      <!-- filled by JS from data.js so home & listing stay in sync -->
+      
     </div>
   </div>
 </section>
 
-<!-- ================= SPOTLIGHT SLIDER (Interactive JS slider) ================= -->
+
 <section class="section-pad pt-0">
   <div class="container">
     <div class="section-head mb-4">
@@ -134,7 +133,7 @@
   </div>
 </section>
 
-<!-- ================= FEATURES ================= -->
+
 <section class="section-pad bg-white" id="about">
   <div class="container">
     <div class="section-head mx-auto text-center">
@@ -176,7 +175,7 @@
   </div>
 </section>
 
-<!-- ================= FOR ORGANIZERS CTA ================= -->
+
 <section class="section-pad">
   <div class="container">
     <div class="row align-items-center bg-brand rounded-4 p-4 p-lg-5 reveal" style="background: var(--ink); border-radius: var(--radius); color:#fff;">
@@ -192,7 +191,7 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+
 <footer class="footer-uni">
   <div class="container">
     <div class="row g-4">
@@ -239,7 +238,7 @@
   </div>
 </footer>
 
-<!-- ================= REGISTER MODAL (shared) ================= -->
+
 <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content" style="border-radius:16px; border:none;">
@@ -264,7 +263,7 @@
 <script src="js/data.js"></script>
 <script src="js/script.js"></script>
 <script>
-  // Render first 3 upcoming events on the home page from the shared dataset
+  
   document.addEventListener("DOMContentLoaded", () => {
     const wrap = document.getElementById("homeEventsGrid");
     if (wrap && typeof EVENTS !== "undefined") {
